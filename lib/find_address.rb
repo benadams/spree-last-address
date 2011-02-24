@@ -1,11 +1,11 @@
 
 class FindAddressHelper
   
-  def self.find_address(email)
-    past = Order.order("created_at").where(:email => email).limit(5)
-    past.reverse!.pop
+  def self.find_address(user_id)
+    past = Order.order("created_at DESC").where(:user_id => user_id).limit(5)
+    past.shift
     bill_address , ship_address = nil , nil
-    while !bill_address and order = past.pop
+    while !bill_address and order = past.shift
       if order.bill_address
         bill_address = order.bill_address.clone
         ship_address = order.ship_address.clone

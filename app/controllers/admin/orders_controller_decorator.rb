@@ -17,7 +17,7 @@ Admin::OrdersController.class_eval do
             FindAddressHelper.set_dummy(params[:order][:bill_address_attributes] , @order.user.email)
             FindAddressHelper.set_dummy(params[:order][:ship_address_attributes] , @order.user.email)
           else
-            bill_address , ship_address = FindAddressHelper.find_address(params[:order][:email])
+            bill_address , ship_address = FindAddressHelper.find_address(@order.user.id)
             return unless bill_address 
             puts "Setting Bill to #{bill_address}"
             FindAddressHelper.set_params(params[:order][:bill_address_attributes] , bill_address)
