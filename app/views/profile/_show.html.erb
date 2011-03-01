@@ -1,0 +1,88 @@
+<h2><%= t("my_addresses") %></h2>
+<div style="float: left; width: 48%;">
+<h3><%= t("billing_address") %></h3>
+<table>
+  <tr>
+    <td><%= t("first_name") %></td>
+    <td><%= @user.bill_address.firstname %></td>
+  </tr>
+  <tr>
+    <td><%= t("last_name") %></td>
+    <td><%= @user.bill_address.lastname %></td>
+  </tr>
+  <tr>
+    <td><%= t("street_address") %></td>
+    <td><%= @user.bill_address.address1 %></td>
+  </tr>
+  <tr>
+    <td><%= t("street_address_2") %></td>
+    <td><%= @user.bill_address.address2 %></td>
+  </tr>
+  <tr>
+    <td><%= t("city") %></td>
+    <td><%= @user.bill_address.city %></td>
+  </tr>
+  <tr>
+    <td><%= t("state") %></td>
+    <td><%= @user.bill_address.state ? @user.bill_address.state.name : @user.bill_address.state_name %></td>
+  </tr>
+  <tr>
+    <td><%= t("zip") %></td>
+    <td><%= @user.bill_address.zipcode %></td>
+  </tr>
+  <tr>
+    <td><%= t("country") %></td>
+    <td><%= @user.bill_address.country %></td>
+  </tr>
+  <tr>
+    <td><%= t("phone") %></td>
+    <td><%= @user.bill_address.phone %></td>
+  </tr>
+</table>
+</div>
+
+<div style="float: right; width: 48%;">
+<h3><%= t("shipping_address") %></h3>
+<table>
+  <tr>
+    <td><%= t("first_name") %></td>
+    <td><%= @user.ship_address.firstname %></td>
+  </tr>
+  <tr>
+    <td><%= t("last_name") %></td>
+    <td><%= @user.ship_address.lastname %></td>
+  </tr>
+  <tr>
+    <td><%= t("street_address") %></td>
+    <td><%= @user.ship_address.address1 %></td>
+  </tr>
+  <tr>
+    <td><%= t("street_address_2") %></td>
+    <td><%= @user.ship_address.address2 %></td>
+  </tr>
+  <tr>
+    <td><%= t("city") %></td>
+    <td><%= @user.ship_address.city %></td>
+  </tr>
+  <tr>
+    <td><%= t("state") %></td>
+    <td><%= @user.ship_address.state ? @user.ship_address.state.name : @user.ship_address.state_name %></td>
+  </tr>
+  <tr>
+    <td><%= t("zip") %></td>
+    <td><%= @user.ship_address.zipcode %></td>
+  </tr>
+  <tr>
+    <td><%= t("country") %></td>
+    <td><%= @user.ship_address.country %></td>
+  </tr>
+  <tr>
+    <td><%= t("phone") %></td>
+    <td><%= @user.ship_address.phone %></td>
+  </tr>
+</table>
+</div>
+
+<div class="clear"></div>
+
+<%= link_to t("edit"), edit_profile_path(@user), :remote => true %>
